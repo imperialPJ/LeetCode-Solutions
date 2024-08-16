@@ -1,0 +1,22 @@
+//Q137 using Brute Force i.e. HashMap
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        unordered_map<int,int> hm;
+        for(int val:nums)
+        {
+            hm[val]++;
+            if(hm[val]==3)
+            {
+                hm.erase(val);
+            }
+        }
+        int a;
+        for(auto pair:hm)
+        {
+            a= pair.first;
+        }
+        return a;
+    }
+};
