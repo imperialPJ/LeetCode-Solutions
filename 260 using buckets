@@ -1,0 +1,29 @@
+//260 using buckets
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        long long xoor=0;
+        for(int val:nums)
+        {
+            xoor^=val;
+        }
+        long long  rm = (xoor^(xoor-1)) & xoor;
+        long long b1=0,b2=0;
+        for(auto val:nums)
+        {
+            if((val & rm) !=0)
+            {
+                b1 ^=val;
+            }
+            else
+            {
+                b2^=val;
+            }
+        }
+        vector<int> v;
+        v.push_back((int)b1);
+        v.push_back((int)b2);
+        return v;
+
+     }
+};
