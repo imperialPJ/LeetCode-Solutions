@@ -1,0 +1,14 @@
+//137 optimal O(n)
+
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int ones=0, twos=0;
+        for(int val:nums)
+        {
+            ones ^= val & (~twos);
+            twos ^= val & (~ones);
+        }
+        return ones;
+    }
+};
